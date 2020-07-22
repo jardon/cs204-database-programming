@@ -73,3 +73,22 @@ WHERE BorrowDate >= Date('2017-01-01') AND BorrowDate <= Date('2017-12-31')
 GROUP BY MONTH(BorrowDate)
 ORDER BY COUNT(MONTH(BorrowDate)) DESC
 LIMIT 1;
+
+-- Average number of borrows by age
+SELECT YEAR(CURDATE()) - ClientDoB AS Age, COUNT(YEAR(CURDATE()) - ClientDoB) / (
+    SELECT COUNT(YEAR(CURDATE()) - ClientDoB) FROM client 
+    WHERE YEAR(CURDATE()) - ClientDoB = Age)
+AS Average FROM client
+INNER JOIN borrower ON borrower.ClientId = client.ClientId
+GROUP BY Age;
+
+-- The oldest and the youngest clients of the library
+(SELECT ClientFirstName, ClientLastName FROM client
+ORDER BY ClientDoB ASC LIMIT 1) UNION
+(SELECT ClientFirstName, ClientLastName FROM client
+ORDER BY ClientDoB DESC LIMIT 1);
+
+-- First and last names of authors that wrote books in more than one genre
+SELECT AuthorFirstName, AuthorLastName FROM author a
+INNER JOIN book ON book.BookAuthor = a.AuthorId
+WHERE (SELECT COUNT(DISTINCT Genre) FROM book WHERE a.AuthorId = book.BookAuthor GROUP BY Genre) > 1;
