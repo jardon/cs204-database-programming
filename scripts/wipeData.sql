@@ -1,4 +1,4 @@
-DROP TABLE borrowers;
-DROP TABLE clients;
-DROP TABLE books;
-DROP TABLE authors;
+DROP TABLE borrower;
+DROP TABLE client;
+DROP TABLE book;
+DROP TABLE author;

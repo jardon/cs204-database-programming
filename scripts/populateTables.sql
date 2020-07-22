@@ -1,4 +1,4 @@
-INSERT INTO authors (AuthorId, AuthorFirstName, AuthorLastName, AuthorNationality) 
+INSERT INTO author (AuthorId, AuthorFirstName, AuthorLastName, AuthorNationality) 
 VALUES  
 (1,'Sofia','Smith','Canada'),
 (2,'Maria','Brown','Brezil'),
@@ -24,7 +24,7 @@ VALUES
 (22,'Liam','Parker','Canada'),
 (23,'Emily','Murphy','USA');
 
-INSERT INTO books (BookId, BookTitle, BookAuthor, Genre)
+INSERT INTO book (BookId, BookTitle, BookAuthor, Genre)
 VALUES
 (1,'Build your database system',1,'Science'),
 (2,'The red wall',2,'Fiction'),
@@ -59,7 +59,7 @@ VALUES
 (31,'Participate',22,'Society'),
 (32,'Positive figures',3,'Fiction');
 
-INSERT INTO clients(ClientId, ClientFirstName, ClientLastName, ClientDoB, Occupation)
+INSERT INTO client (ClientId, ClientFirstName, ClientLastName, ClientDoB, Occupation)
 VALUES
 (1,'Kaiden','Hill',2006,'Student'),
 (2,'Alina','Morton',2010,'Student'),
@@ -142,7 +142,7 @@ VALUES
 (79,'Alysha','Lambert',2007,'Student'),
 (80,'Maia','Grant',1984,'School Teacher');
 
-INSERT INTO borrowers (BorrowId, ClientId, BookId, BorrowDate)
+INSERT INTO borrower (BorrowId, ClientId, BookId, BorrowDate)
 VALUES
 (1,35,17,STR_TO_DATE('20-07-2016', '%d-%m-%Y')),
 (2,1,3,STR_TO_DATE('19-04-2017', '%d-%m-%Y')),
