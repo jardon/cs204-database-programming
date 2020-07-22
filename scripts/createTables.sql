@@ -20,7 +20,7 @@ CREATE TABLE clients(
     ClientId INT AUTO_INCREMENT,
     ClientFirstName VARCHAR(100),
     ClientLastName VARCHAR(100),
-    ClientDoB DATE,
+    ClientDoB SMALLINT,
     Occupation VARCHAR(50),
     PRIMARY KEY(ClientId)
 );
