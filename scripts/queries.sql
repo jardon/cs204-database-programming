@@ -91,4 +91,6 @@ ORDER BY ClientDoB DESC LIMIT 1);
 -- First and last names of authors that wrote books in more than one genre
 SELECT AuthorFirstName, AuthorLastName FROM author a
 INNER JOIN book ON book.BookAuthor = a.AuthorId
-WHERE (SELECT COUNT(DISTINCT Genre) FROM book WHERE a.AuthorId = book.BookAuthor GROUP BY Genre) > 1;
+WHERE (SELECT COUNT(*) FROM 
+(SELECT COUNT(DISTINCT Genre) FROM book WHERE a.AuthorId = book.BookAuthor GROUP BY Genre) AS no_of_genres) > 1
+GROUP BY AuthorId;
